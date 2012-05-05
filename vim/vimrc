@@ -13,11 +13,16 @@ syntax enable
 " Turns on line numbers
 set number
 
+" Highlight current line
+set cursorline
+
+" Supposed to set linebreaks on spaces and not break words across lines
+set linebreak
+
 " Sets antialiasing on by default
 set antialias
 
-" Ever notice a slight lag after typing the leader key + command? This lowers  
-" the timeout.  
+" Ever notice a slight lag after typing the leader key + command? This lowers the timeout.  
 set timeoutlen=500
 
 " Text stuff
@@ -33,14 +38,17 @@ set autoread
 
 
 "Searching
-" set hlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+" Ctrl-n will disable search highlighting
+nmap <silent> <C-n> :noh<CR>
 
 " Set Vim to always show the position of the cursor on the bottom right corner
 set ruler
 set hidden
+
 "set transparency=5
 
 " Status Bar
@@ -48,3 +56,28 @@ set laststatus=2
 
 " For autocompletion
 set wildmode=list:longest,list:full
+
+" Remove MacVim menu and toolbar
+set guioptions-=m
+
+
+" Remove MacVim menu and toolbar
+set guioptions-=m
+set guioptions-=T
+
+" Put Vim backup fils elsewhere
+set backupdir=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+
+" File edited outside Vim refresh in Vim
+set autoread
+
+
+" Map ;; to <esc>
+inoremap ;; <esc>
+
+" Disable blinking cursor
+set gcr=n:blinkon0
+
+" Set auto filtype detection
+filetype plugin indent on
