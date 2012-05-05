@@ -1,0 +1,50 @@
+" Sets the default color scheme and color format
+set t_Co=256
+"colorscheme vividchalk
+colorscheme wombat
+
+" Set Vim to not be compatible with vi. This is better
+set nocompatible
+
+" Turns on syntax higlighting
+syntax on
+syntax enable
+
+" Turns on line numbers
+set number
+
+" Sets antialiasing on by default
+set antialias
+
+" Ever notice a slight lag after typing the leader key + command? This lowers  
+" the timeout.  
+set timeoutlen=500
+
+" Text stuff
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set guifont=Inconsolata:h16
+set smartindent
+set smarttab
+set autoindent
+set expandtab
+set autoread
+
+
+"Searching
+" set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Set Vim to always show the position of the cursor on the bottom right corner
+set ruler
+set hidden
+"set transparency=5
+
+" Status Bar
+set laststatus=2
+
+" For autocompletion
+set wildmode=list:longest,list:full
