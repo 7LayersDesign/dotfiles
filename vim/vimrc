@@ -3,6 +3,10 @@ set t_Co=256
 "colorscheme vividchalk
 colorscheme wombat
 
+" Fire up pathogen and file indentation
+call pathogen#infect("~/dotfiles/vim/bundles")
+filetype plugin indent on
+
 " Set Vim to not be compatible with vi. This is better
 set nocompatible
 
@@ -72,12 +76,25 @@ set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 " File edited outside Vim refresh in Vim
 set autoread
 
-
 " Map ;; to <esc>
 inoremap ;; <esc>
 
 " Disable blinking cursor
 set gcr=n:blinkon0
 
-" Set auto filtype detection
-filetype plugin indent on
+" This should set the window to open maximized.
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=999 columns=999
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+
+
