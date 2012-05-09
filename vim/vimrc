@@ -1,14 +1,13 @@
+" Set Vim to not be compatible with vi. This is better
+set nocompatible
 " Sets the default color scheme and color format
 set t_Co=256
 "colorscheme vividchalk
-colorscheme wombat
+colorscheme tm_cobalt
 
 " Fire up pathogen and file indentation
 call pathogen#infect("~/dotfiles/vim/bundles")
 filetype plugin indent on
-
-" Set Vim to not be compatible with vi. This is better
-set nocompatible
 
 " Turns on syntax higlighting
 syntax on
@@ -46,6 +45,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
 " Ctrl-n will disable search highlighting
 nmap <silent> <C-n> :noh<CR>
 
@@ -61,13 +61,10 @@ set laststatus=2
 " For autocompletion
 set wildmode=list:longest,list:full
 
-" Remove MacVim menu and toolbar
-set guioptions-=m
-
-
-" Remove MacVim menu and toolbar
-set guioptions-=m
+" Remove MacVim menu and toolbar and scrollbars
 set guioptions-=T
+set guioptions-=L
+set guioptions-=r
 
 " Put Vim backup fils elsewhere
 set backupdir=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
@@ -87,14 +84,7 @@ if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window.
   set lines=999 columns=999
-else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
 endif
 
-
+" Setup indent folding
+" set foldmethod=indent
