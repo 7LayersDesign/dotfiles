@@ -88,3 +88,7 @@ endif
 
 " Setup indent folding
 " set foldmethod=indent
+
+" Open NERDTree on Vim load, and move cursor back to opened file
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
