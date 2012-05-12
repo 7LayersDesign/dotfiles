@@ -66,6 +66,15 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Use pre v1.3 EasyMotion leader
 let g:EasyMotion_leader_key = '<Leader>'
 
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Fast editing of the .vimrc
+map <leader>v :e! ~/.vimrc<cr>
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
 " Set Vim to always show the position of the cursor on the bottom right corner
 set ruler
 " Allow persistant background buffers w/o disk-write
