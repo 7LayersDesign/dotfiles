@@ -5,6 +5,12 @@ set t_Co=256
 "colorscheme vividchalk
 colorscheme tm_cobalt
 
+" Set leader to ,
+let mapleader = ","
+
+" Add if/elsif/else/end switching
+runtime macros/matchit.vim
+
 " Fire up pathogen and file indentation
 call pathogen#infect("~/dotfiles/vim/bundles")
 filetype plugin indent on
@@ -14,7 +20,7 @@ syntax on
 syntax enable
 
 " Turns on line numbers
-set number
+" set number
 
 " Highlight current line
 set cursorline
@@ -46,11 +52,23 @@ set incsearch
 set ignorecase
 set smartcase
 
+"==================================================
+"=============== Keyboard Mappings ================
+"==================================================
+
 " Ctrl-n will disable search highlighting
 nmap <silent> <C-n> :noh<CR>
 
+" Toggle trailing spaces and tabs
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
+" Use pre v1.3 EasyMotion leader
+let g:EasyMotion_leader_key = '<Leader>'
+
 " Set Vim to always show the position of the cursor on the bottom right corner
 set ruler
+" Allow persistant background buffers w/o disk-write
 set hidden
 
 "set transparency=5
@@ -59,18 +77,26 @@ set hidden
 set laststatus=2
 
 " For autocompletion
+set wildmenu
 set wildmode=list:longest,list:full
+
+" 3 line buffer at window edges
+set scrolloff=3
 
 " Remove MacVim menu and toolbar and scrollbars
 set guioptions-=T
 set guioptions-=L
 set guioptions-=r
 
-" Put Vim backup fils elsewhere
-set backupdir=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
-set directory=~/.vim/vim-tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+" Put Vim backup files elsewhere
+set backupdir=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
+set directory=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 
-" File edited outside Vim refresh in Vim
+" Increase scrolling to 3 lines at a time
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" File edited outside Vim auto-refresh in Vim
 set autoread
 
 " Map ;; to <esc>
@@ -92,3 +118,13 @@ endif
 " Open NERDTree on Vim load, and move cursor back to opened file
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
+
+" Remap ` to '
+nnoremap ' `
+nnoremap ` '
+
+" Longer history
+set history=1000
+
+" Turn on visual bell, No beeping :)
+set visualbell
