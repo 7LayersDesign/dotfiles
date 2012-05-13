@@ -59,7 +59,7 @@ set ignorecase
 set smartcase
 
 "==================================================
-"=============== Keyboard Mappings ================
+" => Keyboard Mappings 
 "==================================================
 
 " Ctrl-n will disable search highlighting
@@ -70,7 +70,7 @@ set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 " Use pre v1.3 EasyMotion leader
-let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<Leader><Leader>'
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -78,32 +78,32 @@ nmap <leader>w :w!<cr>
 " Fast editing of the .vimrc
 map <leader>v :e! ~/.vimrc<cr>
 
-" When vimrc is edited, reload it
+" When vimrc is edited, reload it automatically
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+"==================================================
+" => GUI Configuration 
+"==================================================
 " Set Vim to always show the position of the cursor on the bottom right corner
 set ruler
 " Allow persistant background buffers w/o disk-write
 set hidden
-
-"set transparency=5
-
 " Status Bar
 set laststatus=2
-
-" For autocompletion
+" Omnicomplete Setup
 set wildmenu
 set wildmode=list:longest,list:full
-
 " 3 line buffer at window edges
 set scrolloff=3
-
 " Remove MacVim menu and toolbar and scrollbars
-set guioptions-=T
-set guioptions-=L
-set guioptions-=r
+set guioptions-=T " Remove MacVim toolbar
+set guioptions-=L " Remove Left scroll bar
+set guioptions-=r " Remove right scrollbars
+set guioptions+=a " Autoselect. Visual mode selections available outside MacVim
+set guioptions+=c " Use console for simple alerts instead of GUI popup
+:set guitablabel=%N\ %f " Set tab label to Tab # and buffer
 
-" Put Vim backup files elsewhere
+" Put Vim backup files somewhere else
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 set directory=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 
@@ -111,6 +111,8 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+set cmdheight=5 " Set command lines count
+set cmdwinheight=5 " Set command window height
 " File edited outside Vim auto-refresh in Vim
 set autoread
 
