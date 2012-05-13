@@ -1,9 +1,15 @@
+" ===============================================
+" Vim Config
+" Andy Hutchins
+" Modified 05-12-2012
+" ===============================================
+
+
 " Set Vim to not be compatible with vi. This is better
 set nocompatible
 " Sets the default color scheme and color format
 set t_Co=256
-"colorscheme vividchalk
-colorscheme tm_cobalt
+colorscheme molokai
 
 " Set leader to ,
 let mapleader = ","
@@ -20,7 +26,7 @@ syntax on
 syntax enable
 
 " Turns on line numbers
-" set number
+set number
 
 " Highlight current line
 set cursorline
@@ -137,3 +143,21 @@ set history=1000
 
 " Turn on visual bell, No beeping :)
 set visualbell
+
+"The commandbar height
+set cmdheight=2 
+
+"Ignore case when searching
+set ignorecase 
+
+"Set magic on, for regular expressions
+set magic
+"Show matching bracets when text indicator is over them
+set showmatch 
+"How many tenths of a second to blink
+set mat=2 
+
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
