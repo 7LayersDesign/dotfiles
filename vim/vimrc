@@ -163,3 +163,6 @@ set mat=2
 set nobackup
 set nowb
 set noswapfile
+
+" Setup PHP Documentation Lookup using simple bash script
+set keywordprg=/Users/903364/bin/php/php_doc
