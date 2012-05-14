@@ -166,3 +166,6 @@ set noswapfile
 
 " Setup PHP Documentation Lookup using simple bash script
 set keywordprg=/Users/903364/bin/php/php_doc
+
+" Set F5 to pop up quick buffer browser
+:nnoremap <F5> :buffers<CR>:buffer<Space>
