@@ -9,8 +9,10 @@
 set nocompatible
 " Sets the default color scheme and color format
 set t_Co=256
-colorscheme molokai
+colorscheme tm_cobalt
 
+" Set Vim to use BASH isntead of ZSH
+set shell=/bin/bash
 " Set leader to ,
 let mapleader = ","
 
@@ -44,7 +46,7 @@ set timeoutlen=500
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set guifont=Inconsolata:h16
+set guifont=Inconsolata:h18
 set smartindent
 set smarttab
 set autoindent
