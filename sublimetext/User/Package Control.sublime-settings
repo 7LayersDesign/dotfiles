@@ -1,0 +1,23 @@
+{
+	"auto_upgrade_last_run": 1337990000,
+	"installed_packages":
+	[
+		"AAAPackageDev",
+		"Abacus",
+		"Additional PHP Snippets",
+		"alternative_autocompletion",
+		"Auto Semi-Colon",
+		"BeautifyRuby",
+		"Cappuccino",
+		"CodeIgniter Snippets",
+		"DetectSyntax",
+		"FileDiffs",
+		"Git",
+		"JSHint",
+		"Package Control",
+		"Theme - Soda",
+		"UnofficialDocs",
+		"WordHighlight",
+		"ZenCoding"
+	]
+}
