@@ -1,0 +1,109 @@
+[
+	{"id": "side-bar-files-open-with",
+		"children":
+		[
+
+			//application 1
+			{
+				"caption": "Photoshop",
+				"id": "side-bar-files-open-with-photoshop",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Adobe Photoshop CS5.1.app", // OSX
+									"extensions":"psd|png|jpg|jpeg"  //any file with these extensions
+								}
+			},
+			{
+				"caption": "Fireworks",
+				"id": "side-bar-files-open-with-fireworks",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Adobe Fireworks CS5.1.app", // OSX
+									"extensions":"psd|png|jpg|jpeg"  //any file with these extensions
+								}
+			},
+			{
+				"caption": "Image Alpha",
+				"id": "side-bar-files-open-with-image-alpha",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "ImageAlpha.app", // OSX
+									"extensions":"png"  //any file with these extensions
+								}
+			},
+			//separator
+			{"caption":"-"},
+
+			//Google Chrome
+			{
+				"caption": "Chrome",
+				"id": "side-bar-files-open-with-chrome",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Google Chrome.app", // OSX
+									"extensions":"html|htm|xml|png|jpg|jpeg|gif" //open all even folders
+								}
+			},
+			//Mozilla Firefox
+			{
+				"caption": "Firefox",
+				"id": "side-bar-files-open-with-firefox",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Firefox.app", // OSX
+									"extensions":"html|htm|xml" //open all even folders
+								}
+			},
+			//Safari
+			{
+				"caption": "Safari",
+				"id": "side-bar-files-open-with-safari",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Safari.app", // OSX
+									"extensions":"html|htm|xml|png|jpg|jpeg|gif" //open all even folders
+								}
+			},
+			//Opera
+			{
+				"caption": "Opera",
+				"id": "side-bar-files-open-with-opera",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Opera.app", // OSX
+									"extensions":"html|htm|xml|png|jpg|jpeg|gif" //open all even folders
+								}
+			},
+
+			//separator
+			{"caption":"-"},
+
+			//Marked
+			{
+				"caption": "Marked",
+				"id": "side-bar-files-open-with-marked",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Marked.app", // OSX
+									"extensions":"md|markdown" //open all even folders
+								}
+			}
+		]
+	}
+]

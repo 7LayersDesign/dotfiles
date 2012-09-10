@@ -1,0 +1,4 @@
+[
+  { "keys": ["super+shift+h"], "command": "toggle_minimap" },
+  { "keys": ["f5"], "command": "insert_date" }
+]

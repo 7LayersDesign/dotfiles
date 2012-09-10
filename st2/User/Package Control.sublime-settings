@@ -1,0 +1,24 @@
+{
+	"auto_upgrade_last_run": 1346543059,
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"ApacheConf.tmLanguage",
+		"ColorPick",
+		"FileDiffs",
+		"Git",
+		"jQuery",
+		"JsFormat",
+		"LESS-build",
+		"Package Control",
+		"Search Stack Overflow",
+		"SideBarEnhancements",
+		"SideBarGit",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"Theme - Nil",
+		"Theme - Phoenix",
+		"Toggle Css Format",
+		"ZenCoding"
+	]
+}
