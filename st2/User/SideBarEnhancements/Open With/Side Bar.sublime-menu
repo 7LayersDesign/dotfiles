@@ -103,7 +103,20 @@
 									"application": "Marked.app", // OSX
 									"extensions":"md|markdown" //open all even folders
 								}
+			},
+			//Textmate
+			{
+				"caption": "Textmate",
+				"id": "side-bar-files-open-with-marked",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Textmate.app", // OSX
+									"extensions":"css|xml|markdon|md|html|js|json" //open all even folders
+								}
 			}
+
 		]
 	}
 ]

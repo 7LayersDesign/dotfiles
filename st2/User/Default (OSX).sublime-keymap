@@ -1,4 +1,6 @@
 [
   { "keys": ["super+shift+h"], "command": "toggle_minimap" },
-  { "keys": ["f5"], "command": "insert_date" }
+  { "keys": ["f5"], "command": "insert_date", "args": {"format": "%A %B %d, %Y at %X"}},
+  { "keys": ["f6"], "command": "open_browser"}
 ]
+
