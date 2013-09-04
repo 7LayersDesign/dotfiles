@@ -1,7 +1,7 @@
 " ===============================================
 " Vim Config
 " Andy Hutchins
-" Modified 05-12-2012
+" Modified 07-05-2013
 " ===============================================
 
 
@@ -15,6 +15,15 @@ colorscheme tm_cobalt
 set shell=/bin/bash
 " Set leader to ,
 let mapleader = ","
+
+" Nerdtree
+    map <F3> :NERDTreeToggle<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Powerline
+    set guifont=Inconsolata\ for\ Powerline
+    let g:Powerline_symbols = 'fancy'
+" }}}
 
 " Add if/elsif/else/end switching
 runtime macros/matchit.vim
@@ -39,14 +48,14 @@ set linebreak
 " Sets antialiasing on by default
 set antialias
 
-" Ever notice a slight lag after typing the leader key + command? This lowers the timeout.  
+" Ever notice a slight lag after typing the leader key + command? This lowers the timeout.
 set timeoutlen=500
 
 " Text stuff
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set guifont=Inconsolata:h18
+set guifont=EssentialPragmataPro:h16
 set smartindent
 set smarttab
 set autoindent
@@ -61,7 +70,7 @@ set ignorecase
 set smartcase
 
 "==================================================
-" => Keyboard Mappings 
+" => Keyboard Mappings
 "==================================================
 
 " Ctrl-n will disable search highlighting
@@ -84,7 +93,7 @@ map <leader>v :e! ~/.vimrc<cr>
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 "==================================================
-" => GUI Configuration 
+" => GUI Configuration
 "==================================================
 " Set Vim to always show the position of the cursor on the bottom right corner
 set ruler
@@ -113,7 +122,7 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-set cmdheight=5 " Set command lines count
+set cmdheight=3 " Set command lines count
 set cmdwinheight=5 " Set command window height
 " File edited outside Vim auto-refresh in Vim
 set autoread
@@ -149,17 +158,17 @@ set history=1000
 set visualbell
 
 "The commandbar height
-set cmdheight=2 
+set cmdheight=2
 
 "Ignore case when searching
-set ignorecase 
+set ignorecase
 
 "Set magic on, for regular expressions
 set magic
 "Show matching bracets when text indicator is over them
-set showmatch 
+set showmatch
 "How many tenths of a second to blink
-set mat=2 
+set mat=2
 
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
@@ -167,7 +176,7 @@ set nowb
 set noswapfile
 
 " Setup PHP Documentation Lookup using simple bash script
-set keywordprg=/Users/903364/bin/php/php_doc
+set keywordprg=/Users/161751/bin/php/php_doc
 
 " Set F5 to pop up quick buffer browser
 :nnoremap <F5> :buffers<CR>:buffer<Space>
