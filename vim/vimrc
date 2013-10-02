@@ -1,32 +1,60 @@
 " ===============================================
 " Vim Config
 " Andy Hutchins
-" Modified 07-05-2013
+" Modified 10-02-2013
 " ===============================================
 
-
-" Set Vim to not be compatible with vi. This is better
+" Set Vim to not be compatible with vi. This is better.
 set nocompatible
+
 " Sets the default color scheme and color format
 set t_Co=256
-colorscheme tm_cobalt
+colorscheme xoria256
 
 " Set Vim to use BASH isntead of ZSH
 set shell=/bin/bash
+
 " Set leader to ,
 let mapleader = ","
 
+" Set highlight style
+highlight Search cterm=underline
+
+" Open splits
+nmap vs :vsplit<cr>
+nmap hs :hsplit<cr>
+
+"Resize vsplit
+nmap <C-v> :vertical resize +5<cr>
+nmap 25 :vertical resize 40<cr>
+nmap 50 <c-w>=
+nmap 75 :vertical resize 120<cr>
+
+"Load the current buffer in Chrome
+nmap ,c :!open -a Google\ Chrome<cr>
+
+" Create/edit file in the current directory
+nmap :ed :edit %:p:h/
+
+" Swap files out of the project root
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+
 " Nerdtree
-    map <F3> :NERDTreeToggle<CR>
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+map <F3> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" Powerline
-    set guifont=Inconsolata\ for\ Powerline
-    let g:Powerline_symbols = 'fancy'
-" }}}
+" Powerline (Fancy thingy at bottom stuff)
+let g:Powerline_symbols = 'fancy'
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-" Add if/elsif/else/end switching
-runtime macros/matchit.vim
+set autowrite  "Save on buffer switch
+set mouse=a " Allow mouse scroll
+
+" Remove search results
+command! H let @/=""
 
 " Fire up pathogen and file indentation
 call pathogen#infect("~/dotfiles/vim/bundles")
@@ -42,6 +70,10 @@ set number
 " Highlight current line
 set cursorline
 
+" Down is really the next line
+nnoremap j gj
+nnoremap k gk
+
 " Supposed to set linebreaks on spaces and not break words across lines
 set linebreak
 
@@ -52,10 +84,11 @@ set antialias
 set timeoutlen=500
 
 " Text stuff
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set guifont=EssentialPragmataPro:h16
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set linespace=15set 
+set guifont=essentialpragmatapro:h16
 set smartindent
 set smarttab
 set autoindent
@@ -122,13 +155,13 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,~/var/tmp,/tmp
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-set cmdheight=3 " Set command lines count
-set cmdwinheight=5 " Set command window height
+set cmdheight=1 " Set command lines count
+set cmdwinheight=1 " Set command window height
 " File edited outside Vim auto-refresh in Vim
 set autoread
 
-" Map ;; to <esc>
-inoremap ;; <esc>
+" Map jj to <esc>
+inoremap jj <esc>
 
 " Disable blinking cursor
 set gcr=n:blinkon0
@@ -146,10 +179,7 @@ endif
 " Open NERDTree on Vim load, and move cursor back to opened file
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
-
-" Remap ` to '
-nnoremap ' `
-nnoremap ` '
+nmap <C-b> :NERDTreeToggle<cr>
 
 " Longer history
 set history=1000
@@ -158,7 +188,7 @@ set history=1000
 set visualbell
 
 "The commandbar height
-set cmdheight=2
+set cmdheight=1
 
 "Ignore case when searching
 set ignorecase
@@ -167,16 +197,15 @@ set ignorecase
 set magic
 "Show matching bracets when text indicator is over them
 set showmatch
-"How many tenths of a second to blink
-set mat=2
-
-" Turn backup off, since most stuff is in SVN, git anyway...
-set nobackup
-set nowb
-set noswapfile
 
 " Setup PHP Documentation Lookup using simple bash script
 set keywordprg=/Users/161751/bin/php/php_doc
+
+" Easier window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
 " Set F5 to pop up quick buffer browser
 :nnoremap <F5> :buffers<CR>:buffer<Space>

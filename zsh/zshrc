@@ -75,11 +75,22 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 
-## older system use /proc/cpuinfo ##
-##alias cpuinfo='less /proc/cpuinfo' ##
-
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
+
+# Browser Setup
+
+## this one saved by butt so many times ##
+alias ff4='/opt/firefox4/firefox'
+alias ff13='/opt/firefox13/firefox'
+alias chrome='/opt/google/chrome/chrome'
+alias opera='/opt/opera/opera'
+
+#default ff
+alias ff=ff13
+
+#my default browser
+alias browser=chrome
 
 # Set Vim helpers
 alias vi=vim
