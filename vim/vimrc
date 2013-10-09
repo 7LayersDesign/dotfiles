@@ -1,7 +1,7 @@
 " ===============================================
 " Vim Config
 " Andy Hutchins
-" Modified 10-02-2013
+" Modified 10-08-2013
 " ===============================================
 
 " Set Vim to not be compatible with vi. This is better.
@@ -40,24 +40,13 @@ nmap :ed :edit %:p:h/
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
-" Nerdtree
-map <F3> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Powerline (Fancy thingy at bottom stuff)
-let g:Powerline_symbols = 'fancy'
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
 set autowrite  "Save on buffer switch
 set mouse=a " Allow mouse scroll
 
-" Remove search results
-command! H let @/=""
+
 
 " Fire up pathogen and file indentation
-call pathogen#infect("~/dotfiles/vim/bundles")
+" call pathogen#infect("~/dotfiles/vim/bundles")
 filetype plugin indent on
 
 " Turns on syntax higlighting
@@ -88,13 +77,20 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set linespace=15set 
+set nowrap
 set guifont=essentialpragmatapro:h16
 set smartindent
 set smarttab
-set autoindent
+" set copyindent                  " copy the previous indentation on autoindenting
+" set autoindent
 set expandtab
+set visualbell           " don't beep
+set noerrorbells         " don't beep
 set autoread
 
+
+"Auto change directory to match current file ,cd
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 "Searching
 set hlsearch
@@ -102,19 +98,31 @@ set incsearch
 set ignorecase
 set smartcase
 
+
+"Show (partial) command in the status line
+set showcmd
+
+" Quickly go forward or backward to buffer
+nmap :bp :BufSurfBack<cr>
+nmap :bn :BufSurfForward<cr>
+
+" Powerline (Fancy thingy at bottom stuff)
+let g:Powerline_symbols = 'fancy'
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
 "==================================================
 " => Keyboard Mappings
 "==================================================
 
-" Ctrl-n will disable search highlighting
+" Ctrl-n or :H will disable search highlighting
 nmap <silent> <C-n> :noh<CR>
+command! H let @/=""
 
 " Toggle trailing spaces and tabs
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
-
-" Use pre v1.3 EasyMotion leader
-let g:EasyMotion_leader_key = '<Leader><Leader>'
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -124,6 +132,21 @@ map <leader>v :e! ~/.vimrc<cr>
 
 " When vimrc is edited, reload it automatically
 autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Auto-remove trailing spaces from PHP files
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+
+" Laravel framework commons
+nmap <leader>lr :e app/routes.php<cr>
+nmap <leader>lca :e app/config/app.php<cr>81Gf(%O
+nmap <leader>lcd :e app/config/database.php<cr>
+nmap <leader>lc :e composer.json<cr>
+
+" Fuzzy Finder
+nmap <leader>ff :FufFile<cr>
+nmap <leader>fb :FufBuffer<cr>
+
 
 "==================================================
 " => GUI Configuration
@@ -164,7 +187,7 @@ set autoread
 inoremap jj <esc>
 
 " Disable blinking cursor
-set gcr=n:blinkon0
+" set gcr=n:blinkon0
 
 " This should set the window to open maximized.
 if has("gui_running")
@@ -173,12 +196,7 @@ if has("gui_running")
   set lines=999 columns=999
 endif
 
-" Setup indent folding
-" set foldmethod=indent
-
-" Open NERDTree on Vim load, and move cursor back to opened file
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+" Open nerdtree
 nmap <C-b> :NERDTreeToggle<cr>
 
 " Longer history
@@ -195,11 +213,8 @@ set ignorecase
 
 "Set magic on, for regular expressions
 set magic
-"Show matching bracets when text indicator is over them
+"Show matching brackets when text indicator is over them
 set showmatch
-
-" Setup PHP Documentation Lookup using simple bash script
-set keywordprg=/Users/161751/bin/php/php_doc
 
 " Easier window navigation
 nmap <C-h> <C-w>h
@@ -210,12 +225,24 @@ nmap <C-l> <C-w>l
 " Set F5 to pop up quick buffer browser
 :nnoremap <F5> :buffers<CR>:buffer<Space>
 
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+"========================================
+" Custom Functions
+"========================================
 
+" Prepare a new PHP class
+"function! Class()
+"    let name = input('Class name? ')
+"    let namespace = input('Any Namespace? ')
+"
+"    if strlen(namespace)
+"        exec 'normal i<?php namespace ' . namespace . ';'
+"    else
+"        exec 'normal i<?php
+"    endif
+"
+"    " Open class
+"    exec 'normal iclass ' . name . ' {^M}^[O^['
+"
+"    exec 'normal i^M    public function __construct()^M{^M ^M}^['
+"endfunction
+"nmap ,1  :call Class()<cr>
